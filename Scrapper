@@ -1,0 +1,8 @@
+import requests as request
+tables = request.get("https://docs.google.com/document/d/e/2PACX-1vSvM5gDlNvt7npYHhp_XfsJvuntUhq184By5xO_pA4b_gCWeXb6dM6ZxwN8rE6S4ghUsCj2VKR21oEP/pub")
+html = tables.text
+sep1 = """<p class="c2"><span class="c1">The table below contains the input data needed to solve the coding assessment exercise.</span></p><p class="c2 c7"><span class="c1"></span></p>"""
+sep2 = """<p class="c2 c7"><span class="c1"></span></p><p class="c2 c7"><span class="c1"></span></p></div></div>"""
+
+part1 = html.partition(sep1)
+part2 = part1[2].partition(sep2)
